@@ -1,13 +1,17 @@
 #!/bin/bash
 
 secrets="/etc/ppp/chap-secrets"
+pptpdConfig="/etc/pptpd.conf"
 
 sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt-get install pptpd
 
-sudo echo "localip $1" >> "/etc/pptpd.conf"
+
+
+sudo echo "localip $1" >> $pptpdConfig
+sudo echo "remoteip 10.0.0.100-200" >> $pptpdConfig
 
 echo "Edit authentication information in $secrets"
 echo "syntax: username pptpd password *"
