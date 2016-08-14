@@ -23,6 +23,7 @@ sudo echo "ms-dns 8.8.8.8" >> $secrets
 sudo echo "ms-dns 8.8.4.4" >> $secrets
 
 sudo service pptpd restart
+sudo systemctl enable pptpd
 
 sudo echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 
